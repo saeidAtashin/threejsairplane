@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.1.11 public/models/cloud/model.glb
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Cloud({opacity, ...props}) {
+export function Cloud({ opacity, ...props }) {
   const { nodes, materials } = useGLTF('./models/cloud/model.glb')
   return (
     <group {...props} dispose={null}>
