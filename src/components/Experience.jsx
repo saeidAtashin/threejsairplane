@@ -101,12 +101,13 @@ export const Experience = () => {
   const cameraGroup = useRef()
   const cameraRail = useRef()
   const scroll = useScroll()
+  const lastScroll = useRef(0)
 
 
   useFrame((_state, delta) => {
 
     const scrollOffset = Math.max(0, scroll.offset)
-
+    let friction = 1
     let resetCameraRail = true
 
     // Look to close text
@@ -117,6 +118,7 @@ export const Experience = () => {
       )
 
       if (distance < FRICTION_DISTANCE) {
+        friction = Math.max(distance / FRICTION_DISTANCE, 0.1)
         const targetCameraRailPosition = new THREE.Vector3(
           (1 - distance / FRICTION_DISTANCE) * textSection.cameraRailDist,
           0,
@@ -134,8 +136,22 @@ export const Experience = () => {
 
     }
 
+//Calculate lerped scroll offset
 
-    const curPoint = curve.getPoint(scrollOffset)
+let lerpedScrollOffset = THREE.MathUtils.lerp(
+  lastScroll.current,
+  scrollOffset,
+  delta * friction
+)
+// protect below  and above 1 
+lerpedScrollOffset = Math.min(lerpedScrollOffset, 1)
+lerpedScrollOffset = Math.max(lerpedScrollOffset, 0)
+
+lastScroll.current = lerpedScrollOffset
+
+
+
+    const curPoint = curve.getPoint(lerpedScrollOffset)
 
 
 
@@ -146,7 +162,7 @@ export const Experience = () => {
     //make the group look ahead on the curve
 
     const lookAtPoint = curve.getPoint(
-      Math.min(scrollOffset + CURVE_AHEAD_CAMERA, 1)
+      Math.min(lerpedScrollOffset + CURVE_AHEAD_CAMERA, 1)
     )
 
 
@@ -167,7 +183,7 @@ export const Experience = () => {
     )
     //airplane rotation
 
-    const tangent = curve.getTangent(scrollOffset + CURVE_AHEAD_AIRPLANE)
+    const tangent = curve.getTangent(lerpedScrollOffset + CURVE_AHEAD_AIRPLANE)
 
     const nonLerpLookAt = new THREE.Group()
     nonLerpLookAt.position.copy(curPoint)
