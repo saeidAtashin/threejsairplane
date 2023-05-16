@@ -2,10 +2,11 @@ import { Float, Line, OrbitControls, PerspectiveCamera, Text, useScroll } from "
 import { Background } from "./Background";
 import { Airplane } from "./Airplane";
 import { Cloud } from "./Cloud";
-import { useMemo, useRef } from "react";
+import { useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three"
 import { useFrame } from "@react-three/fiber";
 import { TextSection } from "./TextSection";
+import { gsap } from "gsap";
 
 const LINE_NB_POINTS = 1000
 const CURVE_DISTANCE = 250
@@ -87,6 +88,205 @@ export const Experience = () => {
     ];
   }, [])
 
+
+  const clouds = useMemo(() => [
+    {
+      position: new THREE.Vector3(-3.5, -3.2, -7),
+      
+    },
+    {
+      position: new THREE.Vector3(3.5, -4, -10),
+      rotation: new THREE.Euler(0, Math.PI / 4, 0),
+
+    },
+    {
+      scale: new THREE.Vector3(4, 6, 4),
+      position: new THREE.Vector3(-18, 0.2, -68),
+      rotation: new THREE.Euler(0, Math.PI / 6, 0),
+    },
+    {
+      scale: new THREE.Vector3(2.5, 3.5, 2.5),
+      position: new THREE.Vector3(10, -1.2, -52),
+      rotation: new THREE.Euler(0, Math.PI / 4, 0),
+
+    },
+
+    //first point
+    {
+      scale: new THREE.Vector3(4, 5, 4),
+      position: new THREE.Vector3(
+        curvePoints[1].x + 10,
+        curvePoints[1].y - 4,
+        curvePoints[1].z + 64
+      ),
+      rotation: new THREE.Euler(0, -Math.PI / 4, 0),
+
+    },
+    {
+      scale: new THREE.Vector3(3, 5, 5),
+      position: new THREE.Vector3(
+        curvePoints[1].x - 20,
+        curvePoints[1].y + 26,
+        curvePoints[1].z + 12
+      ),
+      rotation: new THREE.Euler(0, -Math.PI / 3.5, 0),
+    },
+    {
+      // rotation: new THREE.Euler(0, Math.PI / 7, Math.PI / 5),
+      scale: new THREE.Vector3(5, 5, 5),
+      position: new THREE.Vector3(
+        curvePoints[1].x - 13,
+        curvePoints[1].y + 4,
+        curvePoints[1].z - 62
+      ),
+    },
+    {
+      // rotation: new THREE.Euler(Math.PI / 2, Math.PI / 2, Math.PI / 3),
+      scale: new THREE.Vector3(5, 7, 5),
+      position: new THREE.Vector3(
+        curvePoints[1].x + 54,
+        curvePoints[1].y + 2,
+        curvePoints[1].z - 82
+      ),
+    },
+    {
+      scale: new THREE.Vector3(5, 5, 7),
+      position: new THREE.Vector3(
+        curvePoints[1].x + 8,
+        curvePoints[1].y - 14,
+        curvePoints[1].z - 22
+      ),
+    },
+    //second point
+    {
+      scale: new THREE.Vector3(3, 5, 5),
+      position: new THREE.Vector3(
+        curvePoints[2].x + 6,
+        curvePoints[2].y - 7,
+        curvePoints[2].z + 50
+      ),
+    },
+    {
+      scale: new THREE.Vector3(2, 3, 2),
+      position: new THREE.Vector3(
+        curvePoints[2].x - 2,
+        curvePoints[2].y + 4,
+        curvePoints[2].z - 26
+      ),
+    },
+    {
+      scale: new THREE.Vector3(4, 4, 5),
+      position: new THREE.Vector3(
+        curvePoints[2].x + 12,
+        curvePoints[2].y + 1,
+        curvePoints[2].z - 86
+      ),
+      // rotation: new THREE.Euler(Math.PI / 4, 0, Math.PI / 3),
+    },
+    //third point
+    {
+      scale: new THREE.Vector3(3, 6, 4),
+      position: new THREE.Vector3(
+        curvePoints[3].x + 3,
+        curvePoints[3].y - 10,
+        curvePoints[3].z + 50
+      ),
+      rotation: new THREE.Euler(0,  Math.PI / 2,0),
+
+    },
+    {
+      scale: new THREE.Vector3(3, 4, 6),
+      position: new THREE.Vector3(
+        curvePoints[3].x - 10,
+        curvePoints[3].y,
+        curvePoints[3].z + 30
+      ),
+      rotation: new THREE.Euler(0,  Math.PI / 3, 0),
+    },
+    {
+      scale: new THREE.Vector3(4, 5, 6),
+      position: new THREE.Vector3(
+        curvePoints[3].x - 20,
+        curvePoints[3].y - 5,
+        curvePoints[3].z - 8
+      ),
+      rotation: new THREE.Euler(0, Math.PI / 1.1, 0),
+    },
+    {
+      scale: new THREE.Vector3(5, 7, 6),
+      position: new THREE.Vector3(
+        curvePoints[3].x + 0,
+        curvePoints[3].y - 5,
+        curvePoints[3].z - 98
+      ),
+      // rotation: new THREE.Euler(0, Math.PI / 3, 0),
+    },
+    //fourth point
+    {
+      scale: new THREE.Vector3(2, 3, 4),
+      position: new THREE.Vector3(
+        curvePoints[4].x + 3,
+        curvePoints[4].y - 10,
+        curvePoints[4].z + 2
+      ),
+      rotation: new THREE.Euler(0,Math.PI / 2, 0),
+
+    },
+    {
+      scale: new THREE.Vector3(3, 4, 4),
+      position: new THREE.Vector3(
+        curvePoints[4].x + 24,
+        curvePoints[4].y - 6,
+        curvePoints[4].z - 42
+      ),
+      // rotation: new THREE.Euler(Math.PI / 4, 0, Math.PI / 5),
+    },
+    {
+      scale: new THREE.Vector3(3, 3, 3),
+      position: new THREE.Vector3(
+        curvePoints[4].x - 4,
+        curvePoints[4].y + 9,
+        curvePoints[4].z - 62
+      ),
+      // rotation: new THREE.Euler(Math.PI / 3, 0, Math.PI / 3),
+    },
+    //final
+    {
+      scale: new THREE.Vector3(3, 5, 5),
+      position: new THREE.Vector3(
+        curvePoints[7].x + 12,
+        curvePoints[7].y - 5,
+        curvePoints[7].z + 60
+      ),
+      // rotation: new THREE.Euler(-Math.PI / 4, -Math.PI / 6, 0),
+    },
+    {
+      scale: new THREE.Vector3(2, 4, 4),
+      position: new THREE.Vector3(
+        curvePoints[7].x,
+        curvePoints[7].y,
+        curvePoints[7].z
+      ),
+      rotation: new THREE.Euler(0, Math.PI / 5, 0),
+    },
+    {
+      scale: new THREE.Vector3(2, 5, 5),
+      position: new THREE.Vector3(
+        curvePoints[7].x - 15,
+        curvePoints[7].y + 12,
+        curvePoints[7].z + 35
+      ),
+      rotation: new THREE.Euler(0, Math.PI / 5, 0),
+    },
+  ],
+    []
+  )
+
+
+
+
+
+
   const linePoints = useMemo(() => {
     return curve.getPoints(LINE_NB_POINTS)
   }, [curve])
@@ -136,23 +336,23 @@ export const Experience = () => {
 
     }
 
-//Calculate lerped scroll offset
+    //Calculate lerped scroll offset
 
-let lerpedScrollOffset = THREE.MathUtils.lerp(
-  lastScroll.current,
-  scrollOffset,
-  delta * friction
-)
-// protect below  and above 1 
-lerpedScrollOffset = Math.min(lerpedScrollOffset, 1)
-lerpedScrollOffset = Math.max(lerpedScrollOffset, 0)
+    let lerpedScrollOffset = THREE.MathUtils.lerp(
+      lastScroll.current,
+      scrollOffset,
+      delta * friction
+    )
+    // protect below  and above 1 
+    lerpedScrollOffset = Math.min(lerpedScrollOffset, 1)
+    lerpedScrollOffset = Math.max(lerpedScrollOffset, 0)
 
-lastScroll.current = lerpedScrollOffset
+    lastScroll.current = lerpedScrollOffset
 
 
 
     const curPoint = curve.getPoint(lerpedScrollOffset)
-
+    tl.current.seek(lerpedScrollOffset * tl.current.duration())
 
 
 
@@ -226,6 +426,37 @@ lastScroll.current = lerpedScrollOffset
 
   const airplane = useRef()
 
+  const tl = useRef()
+  const backgroundColors = useRef({
+    colorA: "#3535cc",
+    colorB: "#abaadd",
+  })
+
+  useLayoutEffect(() => {
+    tl.current = gsap.timeline()
+
+    tl.current.to(backgroundColors.current, {
+      duration: 1,
+      colorA: "#6f35cc",
+      colorB: "#ffad30",
+    })
+    tl.current.to(backgroundColors.current, {
+      duration: 1,
+      colorA: "#424242",
+      colorB: "#ffcc00",
+    })
+    tl.current.to(backgroundColors.current, {
+      duration: 1,
+      colorA: "#81318b",
+      colorB: "#55ab8f",
+    })
+    tl.current.pause()
+
+  }, [])
+
+
+
+
   return (
     <>
 
@@ -233,7 +464,7 @@ lastScroll.current = lerpedScrollOffset
 
       {/* <OrbitControls /> */}
       <group ref={cameraGroup}>
-        <Background />
+        <Background backgroundColors={backgroundColors} />
         <group ref={cameraRail}>
 
           <PerspectiveCamera position={[0, 0, 5]} fov={30} makeDefault />
@@ -287,54 +518,15 @@ lastScroll.current = lerpedScrollOffset
       </group>
 
 
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-2, 1, -3]} />
-      <Cloud opacity={0.5} scale={[0.2, 0.3, 0.4]} position={[1.5, -0.5, -2]} />
-      {/* <Cloud opacity={0.5} scale={[0.4, 0.4, 0.4]} rotation-y={Math.PI / 9} position={[1, -0.2, -12]} /> */}
-      <Cloud opacity={0.7} scale={[0.5, 0.5, 0.5]} position={[-1, 1, -53]} />
-      <Cloud opacity={0.3} scale={[0.8, 0.8, 0.8]} position={[0, 1, -100]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-2, 1, -3]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-2, 1, -3]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-2, 1, -3]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-5, 1, -5]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-5, 1, -15]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-8, 3, -10]} />
-      <Cloud opacity={0.4} scale={[0.4, 0.5, 0.8]} position={[-2, 3, -20]} />
-      <Cloud opacity={0.4} scale={[0.4, 0.5, 0.8]} position={[-5, 3, -30]} />
-      <Cloud opacity={0.5} scale={[0.4, 0.4, 0.9]} position={[-5, 3, -40]} />
-      <Cloud opacity={0.5} scale={[0.2, 0.2, 0.9]} position={[-2, 1, -43]} />
-      <Cloud opacity={0.5} scale={[0.2, 0.2, 0.9]} position={[5, 2, -40]} />
-      <Cloud opacity={0.5} scale={[0.5, 0.5, 0.9]} position={[8, 2, -35]} />
-      <Cloud opacity={0.5} scale={[0.2, 0.2, 0.9]} position={[4, 3, -50]} />
 
 
 
-      {/* <Cloud opacity={0.7} scale={[0.5, 0.5, 0.5]} position={[5, 1.5, -200]} />
-      <Cloud opacity={0.3} scale={[0.8, 0.8, 0.8]} position={[0, 2, -180]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[8, 2.5, -300]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-2, 2, -320]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-2, 1.5, -350]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-5, 1.8, -250]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-5, 1.1, -190]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[-8, 2.8, -290]} />
-      <Cloud opacity={0.4} scale={[0.4, 0.5, 0.8]} position={[-2, 3.2, -230]} />
-      <Cloud opacity={0.4} scale={[0.4, 0.5, 0.8]} position={[-5, 3.4, -330]} />
-      <Cloud opacity={0.5} scale={[0.4, 0.4, 0.9]} position={[-5, 2.4, -240]} />
-      <Cloud opacity={0.5} scale={[0.2, 0.2, 0.9]} position={[-2, 1.9, -403]} /> */}
+      {
+        clouds.map((cloud, index) => (
+          <Cloud {...cloud} key={index} />
+        ))
+      }
 
-
-
-      {/* <Cloud opacity={0.7} scale={[0.5, 0.5, 0.5]} position={[5, 1.5, -200]} />
-      <Cloud opacity={0.3} scale={[0.8, 0.8, 0.8]} position={[0, 2, -180]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[20, 2.5, -300]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[45, 2, -320]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[35, 1.5, -350]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[50, 1.8, -250]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[41, 1.1, -190]} />
-      <Cloud opacity={0.5} scale={[0.3, 0.3, 0.3]} position={[39, 2.8, -290]} />
-      <Cloud opacity={0.4} scale={[0.4, 0.5, 0.8]} position={[18, 3.2, -230]} />
-      <Cloud opacity={0.4} scale={[0.4, 0.5, 0.8]} position={[24, 3.4, -330]} />
-      <Cloud opacity={0.5} scale={[0.4, 0.4, 0.9]} position={[28, 2.4, -240]} />
-      <Cloud opacity={0.5} scale={[0.2, 0.2, 0.9]} position={[50, 1.9, -403]} /> */}
     </>
   );
 };
