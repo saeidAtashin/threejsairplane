@@ -7,6 +7,7 @@ import * as THREE from "three"
 import { useFrame } from "@react-three/fiber";
 import { TextSection } from "./TextSection";
 import { gsap } from "gsap";
+import { fadeOnBeforeCompile } from "../utils/fadeMaterial";
 
 const LINE_NB_POINTS = 1000
 const CURVE_DISTANCE = 250
@@ -92,7 +93,7 @@ export const Experience = () => {
   const clouds = useMemo(() => [
     {
       position: new THREE.Vector3(-3.5, -3.2, -7),
-      
+
     },
     {
       position: new THREE.Vector3(3.5, -4, -10),
@@ -191,7 +192,7 @@ export const Experience = () => {
         curvePoints[3].y - 10,
         curvePoints[3].z + 50
       ),
-      rotation: new THREE.Euler(0,  Math.PI / 2,0),
+      rotation: new THREE.Euler(0, Math.PI / 2, 0),
 
     },
     {
@@ -201,7 +202,7 @@ export const Experience = () => {
         curvePoints[3].y,
         curvePoints[3].z + 30
       ),
-      rotation: new THREE.Euler(0,  Math.PI / 3, 0),
+      rotation: new THREE.Euler(0, Math.PI / 3, 0),
     },
     {
       scale: new THREE.Vector3(4, 5, 6),
@@ -229,7 +230,7 @@ export const Experience = () => {
         curvePoints[4].y - 10,
         curvePoints[4].z + 2
       ),
-      rotation: new THREE.Euler(0,Math.PI / 2, 0),
+      rotation: new THREE.Euler(0, Math.PI / 2, 0),
 
     },
     {
@@ -511,8 +512,12 @@ export const Experience = () => {
               }
             ]}
           />
-          <meshStandardMaterial color={"white"} opacity={1} transparent
+          <meshStandardMaterial
+            color={"white"}
+            opacity={1}
+            transparent
             envMapIntensity={2}
+            onBeforeCompile={fadeOnBeforeCompile}
           />
         </mesh>
       </group>
