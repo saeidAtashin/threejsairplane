@@ -117,6 +117,18 @@ color: white;
   transform: translateX(-50%) translateY(50%);
 }
 
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: white;
+  transition: opacity 2s ease-in-out;
+}
+.loader--disapear {
+  opacity: 0;
+}
 
 /* Animation */
 
