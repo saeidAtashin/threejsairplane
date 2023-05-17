@@ -91,15 +91,8 @@ export const Experience = () => {
 
 
   const clouds = useMemo(() => [
-    {
-      position: new THREE.Vector3(-3.5, -3.2, -7),
+    
 
-    },
-    {
-      position: new THREE.Vector3(3.5, -4, -10),
-      rotation: new THREE.Euler(0, Math.PI / 4, 0),
-
-    },
     {
       scale: new THREE.Vector3(4, 6, 4),
       position: new THREE.Vector3(-18, 0.2, -68),
