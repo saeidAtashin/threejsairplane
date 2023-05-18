@@ -12,7 +12,7 @@ body {
 }
 
 ::-webkit-scrollbar{
-  width: 6px;
+  width: 2px;
 }
 
 ::-webkit-scrollbar-track{
@@ -52,27 +52,61 @@ body {
   top: 50vh;
   animation: fadeUp 2.4s ease-in-out;
   transition: all 2s ease-in-out;
+  z-index: 10;
 }
+
+.intro--disappear .logo {
+  top: 42px;
+  transform: scale(0.25);
+  transform-origin: center top;
+}
+
+
 
 
 .spinner {
   position: absolute;
   right: 0px;
   top: 0px;
-  margin-right: -42px;
+  margin-right: -32px;
   margin-top: -42px;
   animation: fadeIn 2.4s ease-in-out 1.2s forwards;
   opacity: 0;
+  z-index: -2;
 }
 
-.spinnner__image {
-  width: 464px;
-  height: 464px;
+.spinner__image {
+  width: 200px;
+  height: 200px;
 background-size: contain;
-background-image: url("/images/Untitled.svg");
+background-image: url("/images/first.svg");
+animation: fadeUp 2.4s ease-in-out;
+transition: all 2s ease-in-out;
 animation: rotate 10s linear infinite;
 }
 
+.intro--disappear .spinner {
+  opacity: 1;
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+.intro__scroll {
+  opacity: 0;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+  position: absolute;
+  top: 24vh;
+}
+
+.intro--disappear .intro__scroll {
+  animation: fadeIn 1s ease-in-out 1.5s forwards;
+}
+
+.overlay--scrolled .intro__scroll {
+  animation: fadeOut 1s ease-in-out forwards;
+}
 
 
 .explore {
@@ -117,17 +151,27 @@ color: white;
   transform: translateX(-50%) translateY(50%);
 }
 
+.overlay--disable {
+  pointer-events: none;
+}
+
+
 .loader {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background: white;
+  /* background: white; */
+  background-image: url("");
   transition: opacity 2s ease-in-out;
 }
 .loader--disapear {
   opacity: 0;
+}
+
+.intro--disappear .explore {
+  animation: fadeOut 1s ease-in-out forwards;
 }
 
 /* Animation */
