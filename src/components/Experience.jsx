@@ -51,6 +51,7 @@ export const Experience = () => {
         ),
         subtitle: `Welcome to Atashin airplane,
 Have a seat and enjoy the ride!`,
+        subtitleLink: "http",
       },
       {
         cameraRailDist: 1.5,
@@ -62,6 +63,7 @@ Have a seat and enjoy the ride!`,
         title: "Services",
         subtitle: `Do you want a drink?
 We have a wide range of beverages!`,
+        subtitleLink: "http",
       },
       {
         cameraRailDist: -1,
@@ -72,6 +74,7 @@ We have a wide range of beverages!`,
         ),
         title: "Fear of flying?",
         subtitle: `Our flight attendants will help you have a great journey`,
+        subtitleLink: "http",
       },
       {
         cameraRailDist: 1.5,
@@ -82,6 +85,7 @@ We have a wide range of beverages!`,
         ),
         title: "Movies",
         subtitle: `We provide a large selection of medias, we highly recommend you Porco Rosso during the flight`,
+        subtitleLink: "http",
       },
     ];
   }, []);
@@ -324,7 +328,7 @@ We have a wide range of beverages!`,
       );
 
       if (distance < FRICTION_DISTANCE) {
-        friction = Math.max(distance / FRICTION_DISTANCE, 0.1);
+        friction = Math.max(distance / FRICTION_DISTANCE, 0.001);
         const targetCameraRailPosition = new Vector3(
           (1 - distance / FRICTION_DISTANCE) * textSection.cameraRailDist,
           0,

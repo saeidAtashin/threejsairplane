@@ -1,9 +1,15 @@
 import { Text } from "@react-three/drei";
 import { fadeOnBeforeCompileFlat } from "../utils/fadeMaterial";
 
-export const TextSection = ({ title, subtitle, ...props }) => {
+export const TextSection = ({ title, subtitle, subtitleLink, ...props }) => {
+  const handleSubtitleClick = () => {
+    if (subtitleLink) {
+      window.open(subtitleLink, "_blank");
+    }
+  };
+
   return (
-    <group {...props}>
+    <group {...props} onClick={handleSubtitleClick}>
       {!!title && (
         <Text
           color="white"
@@ -29,6 +35,8 @@ export const TextSection = ({ title, subtitle, ...props }) => {
         fontSize={0.2}
         maxWidth={2.5}
         font={"./fonts/Inter-Regular.ttf"}
+        onPointerDown={handleSubtitleClick}
+        style={{ cursor: "pointer" }}
       >
         {subtitle}
         <meshStandardMaterial
