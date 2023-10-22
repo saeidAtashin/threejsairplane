@@ -4,7 +4,7 @@ import { fadeOnBeforeCompileFlat } from "../utils/fadeMaterial";
 export const TextSection = ({ title, subtitle, subtitleLink, ...props }) => {
   const handleSubtitleClick = () => {
     if (subtitleLink) {
-      window.open(subtitleLink, "_blank");
+      window.location.href = subtitleLink;
     }
   };
 
@@ -35,7 +35,6 @@ export const TextSection = ({ title, subtitle, subtitleLink, ...props }) => {
         fontSize={0.2}
         maxWidth={2.5}
         font={"./fonts/Inter-Regular.ttf"}
-        onPointerDown={handleSubtitleClick}
         style={{ cursor: "pointer" }}
       >
         {subtitle}
