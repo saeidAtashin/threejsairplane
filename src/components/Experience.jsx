@@ -43,7 +43,7 @@ export const Experience = () => {
   const textSections = useMemo(() => {
     return [
       {
-        cameraRailDist: -1,
+        cameraRailDist: -2,
         position: new Vector3(
           curvePoints[1].x - 3,
           curvePoints[1].y,
@@ -158,7 +158,6 @@ We have a wide range of beverages!`,
         ),
       },
       {
-        
         scale: new Vector3(2, 2, 2),
         position: new Vector3(
           curvePoints[2].x - 2,
@@ -167,7 +166,6 @@ We have a wide range of beverages!`,
         ),
       },
       {
-        
         scale: new Vector3(4, 4, 4),
         position: new Vector3(
           curvePoints[2].x + 12,
@@ -501,7 +499,6 @@ We have a wide range of beverages!`,
     () => (
       <>
         <directionalLight position={[0, 3, 1]} intensity={0.1} />
-        {/* <OrbitControls /> */}
         <group ref={cameraGroup}>
           <Background backgroundColors={backgroundColors} />
           <group ref={cameraRail}>
