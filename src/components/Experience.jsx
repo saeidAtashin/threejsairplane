@@ -30,7 +30,7 @@ export const Experience = () => {
       new THREE.Vector3(0, 0, -6 * CURVE_DISTANCE),
       new THREE.Vector3(0, 0, -7 * CURVE_DISTANCE),
     ],
-    []
+    [],
   );
 
   const sceneOpacity = useRef(0);
@@ -47,10 +47,11 @@ export const Experience = () => {
         position: new Vector3(
           curvePoints[1].x - 3,
           curvePoints[1].y,
-          curvePoints[1].z
+          curvePoints[1].z,
         ),
-        subtitle: `Welcome to Atashin airplane,
-Have a seat and enjoy the ride!`,
+        title: "Private Charter",
+        subtitle:
+          "Not every journey is open to the public.\nSome are written for a single passenger…\nand the rest simply pass by unnoticed.\nFatemeh.",
         subtitleLink: "#/http",
       },
       {
@@ -58,11 +59,11 @@ Have a seat and enjoy the ride!`,
         position: new Vector3(
           curvePoints[2].x + 2,
           curvePoints[2].y,
-          curvePoints[2].z
+          curvePoints[2].z,
         ),
-        title: "Services",
-        subtitle: `Do you want a drink?
-We have a wide range of beverages!`,
+        title: "Cruising Altitude",
+        subtitle:
+          "At 38,000 feet, the world falls silent.\nNo noise, no distance… only presence.\nSomething about it feels familiar.\nFatemeh.",
         subtitleLink: "#/http",
       },
       {
@@ -70,10 +71,11 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[3].x - 3,
           curvePoints[3].y,
-          curvePoints[3].z
+          curvePoints[3].z,
         ),
-        title: "Fear of flying?",
-        subtitle: `Our flight attendants will help you have a great journey`,
+        title: "North Star",
+        subtitle:
+          "Every flight follows a heading.\nBut some routes ignore coordinates entirely,\nand simply follow a signal no one else can see.\nFatemeh.",
         subtitleLink: "#/http",
       },
       {
@@ -81,10 +83,11 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[4].x + 3.5,
           curvePoints[4].y,
-          curvePoints[4].z - 12
+          curvePoints[4].z - 12,
         ),
-        title: "Movies",
-        subtitle: `We provide a large selection of medias, we highly recommend you Porco Rosso during the flight`,
+        title: "Touchdown",
+        subtitle:
+          "The flight has ended.\nBut closure is not guaranteed.\nSome journeys remain in motion… long after landing.\nFatemeh.",
         subtitleLink: "#/http",
       },
     ];
@@ -114,7 +117,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[1].x + 10,
           curvePoints[1].y - 4,
-          curvePoints[1].z + 64
+          curvePoints[1].z + 64,
         ),
       },
       {
@@ -122,7 +125,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[1].x - 20,
           curvePoints[1].y + 4,
-          curvePoints[1].z + 28
+          curvePoints[1].z + 28,
         ),
         rotation: new Euler(0, Math.PI / 7, 0),
       },
@@ -132,7 +135,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[1].x - 13,
           curvePoints[1].y + 4,
-          curvePoints[1].z - 62
+          curvePoints[1].z - 62,
         ),
       },
       {
@@ -141,7 +144,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[1].x + 54,
           curvePoints[1].y + 2,
-          curvePoints[1].z - 82
+          curvePoints[1].z - 82,
         ),
       },
       {
@@ -149,7 +152,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[1].x + 8,
           curvePoints[1].y - 14,
-          curvePoints[1].z - 22
+          curvePoints[1].z - 22,
         ),
       },
       // SECOND POINT
@@ -158,7 +161,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[2].x + 6,
           curvePoints[2].y - 7,
-          curvePoints[2].z + 50
+          curvePoints[2].z + 50,
         ),
       },
       {
@@ -166,7 +169,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[2].x - 2,
           curvePoints[2].y + 4,
-          curvePoints[2].z - 26
+          curvePoints[2].z - 26,
         ),
       },
       {
@@ -174,7 +177,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[2].x + 12,
           curvePoints[2].y + 1,
-          curvePoints[2].z - 86
+          curvePoints[2].z - 86,
         ),
         rotation: new Euler(Math.PI / 4, 0, Math.PI / 23),
       },
@@ -184,7 +187,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[3].x + 3,
           curvePoints[3].y - 10,
-          curvePoints[3].z + 50
+          curvePoints[3].z + 50,
         ),
       },
       {
@@ -192,7 +195,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[3].x - 10,
           curvePoints[3].y,
-          curvePoints[3].z + 30
+          curvePoints[3].z + 30,
         ),
         rotation: new Euler(Math.PI / 1, 2, -(Math.PI / 1)),
       },
@@ -201,7 +204,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[3].x - 20,
           curvePoints[3].y - 5,
-          curvePoints[3].z - 8
+          curvePoints[3].z - 8,
         ),
         rotation: new Euler(Math.PI, 2, Math.PI / 1),
       },
@@ -210,7 +213,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[3].x + 0,
           curvePoints[3].y - 5,
-          curvePoints[3].z - 98
+          curvePoints[3].z - 98,
         ),
         rotation: new Euler(0, Math.PI / 3, 0),
       },
@@ -220,7 +223,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[4].x + 3,
           curvePoints[4].y - 10,
-          curvePoints[4].z + 2
+          curvePoints[4].z + 2,
         ),
       },
       {
@@ -228,7 +231,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[4].x + 24,
           curvePoints[4].y - 6,
-          curvePoints[4].z - 42
+          curvePoints[4].z - 42,
         ),
         rotation: new Euler(Math.PI / 1, 0, Math.PI / 1),
       },
@@ -237,7 +240,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[4].x - 4,
           curvePoints[4].y + 9,
-          curvePoints[4].z - 62
+          curvePoints[4].z - 62,
         ),
         rotation: new Euler(Math.PI / 1, 0, Math.PI / 1),
       },
@@ -247,7 +250,7 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[7].x + 12,
           curvePoints[7].y - 5,
-          curvePoints[7].z + 60
+          curvePoints[7].z + 60,
         ),
         rotation: new Euler(-Math.PI / 4, -Math.PI / 6, 0),
       },
@@ -256,12 +259,12 @@ We have a wide range of beverages!`,
         position: new Vector3(
           curvePoints[7].x - 12,
           curvePoints[7].y + 5,
-          curvePoints[7].z + 120
+          curvePoints[7].z + 120,
         ),
         rotation: new Euler(Math.PI / 4, Math.PI / 6, 0),
       },
     ],
-    []
+    [],
   );
 
   const shape = useMemo(() => {
@@ -299,7 +302,7 @@ We have a wide range of beverages!`,
       sceneOpacity.current = THREE.MathUtils.lerp(
         sceneOpacity.current,
         1,
-        delta * 0.1
+        delta * 0.1,
       );
     }
 
@@ -307,7 +310,7 @@ We have a wide range of beverages!`,
       sceneOpacity.current = THREE.MathUtils.lerp(
         sceneOpacity.current,
         0,
-        delta
+        delta,
       );
     }
 
@@ -324,7 +327,7 @@ We have a wide range of beverages!`,
     // LOOK TO CLOSE TEXT SECTIONS
     textSections.forEach((textSection) => {
       const distance = textSection.position.distanceTo(
-        cameraGroup.current.position
+        cameraGroup.current.position,
       );
 
       if (distance < FRICTION_DISTANCE) {
@@ -332,7 +335,7 @@ We have a wide range of beverages!`,
         const targetCameraRailPosition = new Vector3(
           (1 - distance / FRICTION_DISTANCE) * textSection.cameraRailDist,
           0,
-          0
+          0,
         );
         cameraRail.current.position.lerp(targetCameraRailPosition, delta);
         resetCameraRail = false;
@@ -347,7 +350,7 @@ We have a wide range of beverages!`,
     let lerpedScrollOffset = THREE.MathUtils.lerp(
       lastScroll.current,
       scrollOffset,
-      delta * friction
+      delta * friction,
     );
     // PROTECT BELOW 0 AND ABOVE 1
     lerpedScrollOffset = Math.min(lerpedScrollOffset, 1);
@@ -364,11 +367,11 @@ We have a wide range of beverages!`,
     // Make the group look ahead on the curve
 
     const lookAtPoint = curve.getPoint(
-      Math.min(lerpedScrollOffset + CURVE_AHEAD_CAMERA, 1)
+      Math.min(lerpedScrollOffset + CURVE_AHEAD_CAMERA, 1),
     );
 
     const currentLookAt = cameraGroup.current.getWorldDirection(
-      new THREE.Vector3()
+      new THREE.Vector3(),
     );
     const targetLookAt = new THREE.Vector3()
       .subVectors(curPoint, lookAtPoint)
@@ -376,7 +379,7 @@ We have a wide range of beverages!`,
 
     const lookAt = currentLookAt.lerp(targetLookAt, delta * 24);
     cameraGroup.current.lookAt(
-      cameraGroup.current.position.clone().add(lookAt)
+      cameraGroup.current.position.clone().add(lookAt),
     );
 
     // Airplane rotation
@@ -389,7 +392,7 @@ We have a wide range of beverages!`,
 
     tangent.applyAxisAngle(
       new THREE.Vector3(0, 1, 0),
-      -nonLerpLookAt.rotation.y
+      -nonLerpLookAt.rotation.y,
     );
 
     let angle = Math.atan2(-tangent.z, tangent.x);
@@ -413,8 +416,8 @@ We have a wide range of beverages!`,
       new THREE.Euler(
         airplane.current.rotation.x,
         airplane.current.rotation.y,
-        angle
-      )
+        angle,
+      ),
     );
     airplane.current.quaternion.slerp(targetAirplaneQuaternion, delta * 2);
 
@@ -477,7 +480,7 @@ We have a wide range of beverages!`,
         z: -250,
         y: 10,
       },
-      0
+      0,
     );
     planeOutTl.current.to(
       cameraRail.current.position,
@@ -485,7 +488,7 @@ We have a wide range of beverages!`,
         duration: 8,
         y: 12,
       },
-      0
+      0,
     );
     planeOutTl.current.to(airplane.current.position, {
       duration: 1,
@@ -557,6 +560,6 @@ We have a wide range of beverages!`,
         ))}
       </>
     ),
-    []
+    [],
   );
 };

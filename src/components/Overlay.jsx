@@ -20,6 +20,12 @@ export const Overlay = () => {
               <div className="spinner__image" />
             </div>
           </h1>
+          <h1 className="logo">
+            ATASHIN
+            <div className="spinner">
+              <p className="intro__scroll">Hello Fatemeh!</p>
+            </div>
+          </h1>
           <p className="intro__scroll">Scroll to begin the journey</p>
           <button
             className="explore"
@@ -27,7 +33,7 @@ export const Overlay = () => {
               setPlay(true);
             }}
           >
-            Explore
+            Welcome Fatemeh!
           </button>
         </div>
       )}
