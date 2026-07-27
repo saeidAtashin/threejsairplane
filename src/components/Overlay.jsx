@@ -21,9 +21,9 @@ export const Overlay = () => {
             </div>
           </h1>
           <h1 className="logo">
-            ATASHIN
+            AIRWAYS
             <div className="spinner">
-              <p className="intro__scroll">Hello Fatemeh!</p>
+              <p className="intro__scroll">Ready for takeoff</p>
             </div>
           </h1>
           <p className="intro__scroll">Scroll to begin the journey</p>
