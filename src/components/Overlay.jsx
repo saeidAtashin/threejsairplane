@@ -33,12 +33,12 @@ export const Overlay = () => {
               setPlay(true);
             }}
           >
-            Welcome Fatemeh!
+            Explore
           </button>
         </div>
       )}
       <div className={`outro ${end ? "outro--appear" : ""}`}>
-        <p className="outro__text">Wish you had a great flight with us...</p>
+        <p className="outro__text">Thanks for flying with us.</p>
       </div>
     </div>
   );

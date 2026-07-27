@@ -51,7 +51,7 @@ export const Experience = () => {
         ),
         title: "Private Charter",
         subtitle:
-          "Not every journey is open to the public.\nSome are written for a single passenger…\nand the rest simply pass by unnoticed.\nFatemeh.",
+          "Not every journey is open to the public.\nSome flights are reserved for those who choose the sky.",
         subtitleLink: "#/http",
       },
       {
@@ -63,7 +63,7 @@ export const Experience = () => {
         ),
         title: "Cruising Altitude",
         subtitle:
-          "At 38,000 feet, the world falls silent.\nNo noise, no distance… only presence.\nSomething about it feels familiar.\nFatemeh.",
+          "At 38,000 feet, the world falls silent.\nNo noise, no distance — only the calm of open air.",
         subtitleLink: "#/http",
       },
       {
@@ -75,7 +75,7 @@ export const Experience = () => {
         ),
         title: "North Star",
         subtitle:
-          "Every flight follows a heading.\nBut some routes ignore coordinates entirely,\nand simply follow a signal no one else can see.\nFatemeh.",
+          "Every flight follows a heading.\nTrust the course, and let the sky lead the way.",
         subtitleLink: "#/http",
       },
       {
@@ -87,7 +87,7 @@ export const Experience = () => {
         ),
         title: "Touchdown",
         subtitle:
-          "The flight has ended.\nBut closure is not guaranteed.\nSome journeys remain in motion… long after landing.\nFatemeh.",
+          "The flight has ended.\nEvery landing marks the start of the next journey.",
         subtitleLink: "#/http",
       },
     ];
